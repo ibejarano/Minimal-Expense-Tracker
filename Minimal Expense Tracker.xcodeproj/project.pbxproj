@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		730436CC2BB0AB5700D30A97 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730436CB2BB0AB5700D30A97 /* AddExpenseView.swift */; };
 		731FCE772BA48BAF0010DDC7 /* Minimal_Expense_TrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FCE762BA48BAF0010DDC7 /* Minimal_Expense_TrackerApp.swift */; };
 		731FCE792BA48BAF0010DDC7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FCE782BA48BAF0010DDC7 /* ContentView.swift */; };
 		731FCE7B2BA48BB00010DDC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 731FCE7A2BA48BB00010DDC7 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		730436CB2BB0AB5700D30A97 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 		731FCE732BA48BAF0010DDC7 /* Minimal Expense Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Minimal Expense Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		731FCE762BA48BAF0010DDC7 /* Minimal_Expense_TrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minimal_Expense_TrackerApp.swift; sourceTree = "<group>"; };
 		731FCE782BA48BAF0010DDC7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			children = (
 				731FCE762BA48BAF0010DDC7 /* Minimal_Expense_TrackerApp.swift */,
 				731FCE782BA48BAF0010DDC7 /* ContentView.swift */,
+				730436CB2BB0AB5700D30A97 /* AddExpenseView.swift */,
 				731FCE7A2BA48BB00010DDC7 /* Assets.xcassets */,
 				731FCE7C2BA48BB00010DDC7 /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				730436CC2BB0AB5700D30A97 /* AddExpenseView.swift in Sources */,
 				731FCE792BA48BAF0010DDC7 /* ContentView.swift in Sources */,
 				731FCE772BA48BAF0010DDC7 /* Minimal_Expense_TrackerApp.swift in Sources */,
 			);

@@ -7,11 +7,18 @@
 
 import SwiftUI
 
-struct Expense: Identifiable {
+@Observable
+class Expense: Identifiable {
     let id = UUID()
     let name: String
     let amount: Double
     let category: String
+    
+    init(name: String, amount: Double, category: String) {
+        self.name = name
+        self.amount = amount
+        self.category = category
+    }
     
     static var example = Expense(name: "Bananas", amount: Double.random(in: 1...100), category: "Grocery")
     
@@ -41,19 +48,28 @@ struct ExpenseListView: View {
             }.onDelete(perform: { indexSet in
                 expenses.remove(atOffsets: indexSet)
             })
-        }.navigationTitle("Today's expenses")
-            .toolbar {
-                EditButton()
-            }
+        }
     }
 }
 
 struct ContentView: View {
     @State private var expenses: [Expense] = Expense.exampleArray
     
+    @State private var addNewExpense = false
+    
     var body: some View {
         NavigationStack {
-            ExpenseListView(expenses: expenses)
+            ExpenseListView(expenses: expenses).navigationTitle("Today's expenses")
+                .toolbar {
+                    Button("Add new") {
+                        let newexp = Expense(name: "Gas", amount: Double.random(in: 1...100), category: "House")
+                        expenses.append(newexp)
+                    }
+                    EditButton()
+                }
+                .sheet(isPresented: $addNewExpense) {
+                    AddExpenseView(expenses: expenses)
+                }
         }
     }
 }
