@@ -32,7 +32,7 @@ struct ExpenseListView: View {
         List {
             ForEach(expenses) { expense in
                 HStack {
-                    Text(expense.name)
+                    Text(expense.name).frame(width: 120)
                     Spacer()
                     Text(expense.category).background(.gray)
                     Spacer()
@@ -41,7 +41,10 @@ struct ExpenseListView: View {
             }.onDelete(perform: { indexSet in
                 expenses.remove(atOffsets: indexSet)
             })
-        }
+        }.navigationTitle("Today's expenses")
+            .toolbar {
+                EditButton()
+            }
     }
 }
 
@@ -49,7 +52,9 @@ struct ContentView: View {
     @State private var expenses: [Expense] = Expense.exampleArray
     
     var body: some View {
-        ExpenseListView(expenses: expenses)
+        NavigationStack {
+            ExpenseListView(expenses: expenses)
+        }
     }
 }
 
