@@ -13,7 +13,7 @@ struct AddExpenseView: View {
     @State private var category = ""
     @State private var amount = Double.random(in: 1...100)
     
-    @State var expenses: [Expense]
+    @Binding var expenses: [Expense]
     @Environment(\.dismiss) var dismiss
     
     let validCategories = ["House", "Food", "Grocery"]
@@ -53,6 +53,3 @@ struct AddExpenseView: View {
     }
 }
 
-#Preview {
-    AddExpenseView(expenses: [Expense]())
-}

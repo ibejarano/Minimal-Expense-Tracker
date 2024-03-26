@@ -7,30 +7,6 @@
 
 import SwiftUI
 
-@Observable
-class Expense: Identifiable {
-    let id = UUID()
-    let name: String
-    let amount: Double
-    let category: String
-    
-    init(name: String, amount: Double, category: String) {
-        self.name = name
-        self.amount = amount
-        self.category = category
-    }
-    
-    static var example = Expense(name: "Bananas", amount: Double.random(in: 1...100), category: "Grocery")
-    
-    static var exampleArray : [Expense] = [
-        Expense(name: "Bananas", amount: Double.random(in: 1...100), category: "Grocery"),
-        Expense(name: "Meat with salad", amount: Double.random(in: 1...100), category: "Food"),
-        Expense(name: "Aspirines", amount: Double.random(in: 1...100), category: "Health"),
-        Expense(name: "Rent", amount: Double.random(in: 1...100), category: "House"),
-        Expense(name: "Water supply", amount: Double.random(in: 1...100), category: "House"),
-        Expense(name: "Gas", amount: Double.random(in: 1...100), category: "House")
-    ]
-}
 
 struct ExpenseListView: View {
     @Binding var expenses: [Expense]
@@ -54,6 +30,7 @@ struct ExpenseListView: View {
 
 struct ContentView: View {
     @State private var expenses: [Expense] = Expense.exampleArray
+    @State private var user = User(name: "Ignacio")
     
     @State private var addNewExpense = false
     var body: some View {
@@ -64,10 +41,15 @@ struct ContentView: View {
                         let newexp = Expense(name: "Gas", amount: Double.random(in: 1...100), category: "House")
                         expenses.append(newexp)
                     }
+                    
+                    Button("Add", systemImage: "plus.circle.fill") {
+                        addNewExpense = true
+                    }
+                    
                     EditButton()
                 }
                 .sheet(isPresented: $addNewExpense) {
-                    AddExpenseView(expenses: expenses)
+                    AddExpenseView(expenses: $expenses)
                 }
         }
     }
