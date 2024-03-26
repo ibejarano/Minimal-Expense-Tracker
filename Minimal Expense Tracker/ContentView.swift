@@ -33,7 +33,7 @@ class Expense: Identifiable {
 }
 
 struct ExpenseListView: View {
-    @State var expenses: [Expense]
+    @Binding var expenses: [Expense]
     
     var body: some View {
         List {
@@ -56,12 +56,11 @@ struct ContentView: View {
     @State private var expenses: [Expense] = Expense.exampleArray
     
     @State private var addNewExpense = false
-    
     var body: some View {
         NavigationStack {
-            ExpenseListView(expenses: expenses).navigationTitle("Today's expenses")
+            ExpenseListView(expenses: $expenses).navigationTitle("Today's expenses")
                 .toolbar {
-                    Button("Add new") {
+                    Button("Dummy Add") {
                         let newexp = Expense(name: "Gas", amount: Double.random(in: 1...100), category: "House")
                         expenses.append(newexp)
                     }
