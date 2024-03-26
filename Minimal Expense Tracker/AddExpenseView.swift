@@ -14,16 +14,16 @@ struct AddExpenseView: View {
     @State private var amount = Double.random(in: 1...100)
     
     @Binding var expenses: [Expense]
+    let expenseCategories: [String]
     @Environment(\.dismiss) var dismiss
     
-    let validCategories = ["House", "Food", "Grocery"]
     var body: some View {
             Section {
                 Form {
                     TextField("Name", text: $name)
                    
                     Picker("Category", selection: $category) {
-                        ForEach(validCategories, id: \.self) {
+                        ForEach(expenseCategories, id: \.self) {
                             Text($0)
                         }
                     }

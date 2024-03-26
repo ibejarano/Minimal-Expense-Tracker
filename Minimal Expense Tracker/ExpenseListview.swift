@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct ExpenseListview: View {
+    @Binding var expenses: [Expense]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            ForEach(expenses) { expense in
+                RowExpenseView(expense: expense)
+            }.onDelete(perform: { indexSet in
+                expenses.remove(atOffsets: indexSet)
+            })
+        }
     }
 }
 
-#Preview {
-    ExpenseListview()
+
+#Preview("Example array") {
+    @State var exampleArray : [Expense] = Expense.exampleArray
+    
+    return ExpenseListview(expenses: $exampleArray)
 }
