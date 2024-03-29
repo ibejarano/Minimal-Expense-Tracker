@@ -18,8 +18,7 @@ struct AddExpenseView: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-            Section {
-                Form {
+                List {
                     TextField("Name", text: $name)
                    
                     Picker("Category", selection: $category) {
@@ -35,21 +34,38 @@ struct AddExpenseView: View {
                         Spacer()
                         TextField("Amount", value: $amount, formatter: NumberFormatter()).frame(alignment: .trailing)
                     }
-                }
-                
-                HStack {
-                    Button("Cancel", role: .cancel) {
-                        dismiss()
+                    HStack {
+                        Button("Cancel", role: .cancel) {
+                            dismiss()
+                        }
+                        Spacer()
+                        Button("Add") {
+                            let newExpense = Expense(name: name, amount: amount, category: category)
+                            expenses.append(newExpense)
+                            dismiss()
+                        }.buttonStyle(.borderedProminent)
                     }
-                    Button("Add") {
-                        let newExpense = Expense(name: name, amount: amount, category: category)
-                        expenses.append(newExpense)
-                        dismiss()
-                    }
-                }
-            }
-            .navigationTitle("Add new expense")
-            .navigationBarTitleDisplayMode(.inline)
+                }.presentationDetents([.medium, .large])
     }
 }
 
+#Preview("Normal") {
+    
+    @State var user = User(name: "Ignacio")
+    @State var expenses = Expense.exampleArray
+    
+    return AddExpenseView(expenses: $expenses, expenseCategories: user.expensesCategories.categories)
+}
+
+#Preview("Sheet") {
+    
+    @State var user = User(name: "Ignacio")
+    @State var expenses = Expense.exampleArray
+    @State var showSheet = true
+    
+    return
+        Text("Background view")
+        .sheet(isPresented: $showSheet){
+            AddExpenseView(expenses: $expenses, expenseCategories: user.expensesCategories.categories)
+        }
+}

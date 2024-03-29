@@ -16,6 +16,7 @@
 		731FCE792BA48BAF0010DDC7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731FCE782BA48BAF0010DDC7 /* ContentView.swift */; };
 		731FCE7B2BA48BB00010DDC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 731FCE7A2BA48BB00010DDC7 /* Assets.xcassets */; };
 		731FCE7E2BA48BB00010DDC7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 731FCE7D2BA48BB00010DDC7 /* Preview Assets.xcassets */; };
+		735CD8D82BB705FC00AB3DA6 /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735CD8D72BB705FC00AB3DA6 /* TestingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		731FCE782BA48BAF0010DDC7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		731FCE7A2BA48BB00010DDC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		731FCE7D2BA48BB00010DDC7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		735CD8D72BB705FC00AB3DA6 /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +47,6 @@
 		731FCE6A2BA48BAF0010DDC7 = {
 			isa = PBXGroup;
 			children = (
-				7317CFA82BB33E5B0057D511 /* RowExpenseView.swift */,
 				731FCE752BA48BAF0010DDC7 /* Minimal Expense Tracker */,
 				731FCE742BA48BAF0010DDC7 /* Products */,
 			);
@@ -62,8 +63,10 @@
 		731FCE752BA48BAF0010DDC7 /* Minimal Expense Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				7317CFA82BB33E5B0057D511 /* RowExpenseView.swift */,
 				731FCE762BA48BAF0010DDC7 /* Minimal_Expense_TrackerApp.swift */,
 				731FCE782BA48BAF0010DDC7 /* ContentView.swift */,
+				735CD8D72BB705FC00AB3DA6 /* TestingView.swift */,
 				7317CFA62BB33C570057D511 /* ExpenseListview.swift */,
 				7317CFA42BB338240057D511 /* User.swift */,
 				7317CFA22BB336940057D511 /* Expense.swift */,
@@ -157,6 +160,7 @@
 				731FCE792BA48BAF0010DDC7 /* ContentView.swift in Sources */,
 				7317CFA52BB338240057D511 /* User.swift in Sources */,
 				731FCE772BA48BAF0010DDC7 /* Minimal_Expense_TrackerApp.swift in Sources */,
+				735CD8D82BB705FC00AB3DA6 /* TestingView.swift in Sources */,
 				7317CFA92BB33E5B0057D511 /* RowExpenseView.swift in Sources */,
 				7317CFA72BB33C570057D511 /* ExpenseListview.swift in Sources */,
 			);

@@ -7,27 +7,21 @@
 
 import SwiftUI
 
-struct CategoryBadge : View {
-    let category: String
-    var body: some View {
-        Text(category)
-            .padding(.horizontal)
-            .background(.cyan)
-    }
-}
-
 struct RowExpenseView: View {
     
     let expense: Expense
     
     var body: some View {
-        Label(expense.name, systemImage: "bolt.fill") //  {
-            // Text(expense.name).frame(width: 120)
-            // Spacer()
-            // CategoryBadge(category: expense.category)
-            // Spacer()
-            // Text(expense.amount, format: .currency(code: "USD"))
-            // }
+        Label {
+            HStack {
+                Text(expense.name)
+                Spacer()
+                Text(expense.amount, format: .currency(code: "USD"))
+            }
+        } icon: {
+            Image(systemName: expense.icon)
+            
+        }
     }
 }
 
@@ -44,9 +38,9 @@ struct RowExpenseView: View {
             RowExpenseView(expense: Expense.example)
         }
         Section {
-            RowExpenseView(expense: Expense.example)
-            RowExpenseView(expense: Expense.example)
-            RowExpenseView(expense: Expense.example)
+            ForEach(Expense.exampleArray) {
+                RowExpenseView(expense: $0)
+            }
         }
     }
 }

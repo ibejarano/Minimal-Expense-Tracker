@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct TestingView: View {
+    @State private var showSheet = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button("Present") {
+            showSheet.toggle()
+        }.sheet(isPresented: $showSheet) {
+            Text("We are doing our best")
+                .presentationDetents([.medium, .large])
+        }
     }
 }
 

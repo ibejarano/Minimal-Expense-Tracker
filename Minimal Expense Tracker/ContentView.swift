@@ -19,16 +19,14 @@ struct ContentView: View {
         NavigationStack {
             ExpenseListview(expenses: $expenses).navigationTitle("Today's expenses")
                 .toolbar {
-                    Button("Dummy Add") {
-                        let newexp = Expense(name: "Gas", amount: Double.random(in: 1...100), category: "House")
-                        expenses.append(newexp)
-                    }
+                    
                     
                     Button("Add", systemImage: "plus.circle.fill") {
                         addNewExpense = true
                     }
                     
                     EditButton()
+                    
                 }
                 .sheet(isPresented: $addNewExpense) {
                     AddExpenseView(expenses: $expenses, expenseCategories: user.expensesCategories.categories)
